@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rosybrown;
+            margin: 0;
+            padding: 0;
+
+        }
+        .presenta{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product{
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgb(18, 2, 2);
+        
+        }
+
+        .product img{
+            object-fit: cover;
+            
+            width: 100%;
+            height: 200px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+            
+        }
+        /* we use obj-fit: cover; to make sure the image fills the container without distortion, and we set a fixed height to maintain a consistent layout. */
+    
+    </style>
+</head>
+<body>
+    <div class="presenta">
+        <div class="product">
+            <img src="https://images.pexels.com/photos/13886741/pexels-photo-13886741.jpeg/">
+            <h2>Iphone</h2>
+            <p>$140</p>
+            <Button>Add to Cart</Button>
+        </div>
+        <div class="product">
+            <img src="https://images.pexels.com/photos/18798601/pexels-photo-18798601.jpeg">
+            <h2>Football</h2>
+            <p>$14</p>
+            <Button>Add to Cart</Button>
+        </div>
+        <div class="product">
+            <img src="https://images.pexels.com/photos/35801177/pexels-photo-35801177.jpeg">
+            <h2>Cricket bat</h2>
+            <p>$14.99</p>
+            <Button>Add to Cart</Button>
+        </div>
+        <div class="product">
+            <img src="https://images.pexels.com/photos/1374128/pexels-photo-1374128.jpeg">
+            <h2>watch</h2>
+            <p>$100</p>
+            <Button>Add to Cart</Button>
+        </div>
+    </div>
+</body>
+</html>

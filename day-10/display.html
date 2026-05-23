@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: red;
+            font-family:cursive;
+
+        }
+
+        p.ex1{
+            display: none;
+        }
+        /* The element with the class "ex1" will not be displayed on the page. It will not take up any space and will not be visible to the user. */
+        p.ex2{
+            display: block;
+            background-color: lightblue;
+        }
+        /* The element with the class "ex2" will be displayed as a block-level element. */
+
+        p.ex3{
+            display: inline;
+            background-color: lightgreen;
+        }
+        /* The element with the class "ex3" will be displayed as an inline-level element. */
+
+        p.ex4{
+            display: inline-block;
+            background-color: lightyellow;
+            width: 200px;
+            height: 100px;
+        }
+        /* The element with the class "ex4" will be displayed as an inline-block-level element. */
+
+    </style>
+</head>
+</head>
+<body>
+    <h1>Display</h1>
+    <h1> Display: None</h1>
+
+     <div>
+    Here display none means nothing to display. It will not take up any space on the page. It is as if the element does not exist in the document.
+   <p class="ex1">"hello display none"</p>
+    </div >
+
+    <h1> Display: Block</h1>
+    <div>
+        here display block means the element will take up the full width available and start on a new line. It will create a block-level element that can contain other elements.
+        <p class="ex2">"hello display block"</p>
+    </div>
+
+    <h1> Display: Inline</h1>
+    <div>
+        <p class="ex3">"hello display inline"</p>
+        here display inline means the element will only take up as much width as necessary and will not
+    </div>
+    <h1> Display: Inline-block</h1>
+    <div>
+        here display inline-block means the element will be displayed as an inline-level element, but it will also allow you to set width and height properties. It will take up only as much width as necessary, but it can also have a specified width and height.
+        <p class="ex4">"hello display inline-block"</p>
+    </div>
+</body>
+</html>
