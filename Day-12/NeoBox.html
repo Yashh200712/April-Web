@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        height: 100px;
+        width: 100px;
+        border : 2px solid cyan;
+        animation:glowBox infinite alternate 1.5s ease-in-out;
+       /* border-radius: 50%; we it to make it circular */
+    }
+
+    @keyframes glowBox {
+        from {
+            box-shadow: 0 0 5px cyan, 0 0 10px cyan;
+        }
+        to {
+            box-shadow: 0 0 20px rgb(124, 171, 16), 0 0 40px rgb(152, 191, 26);
+        }
+    }
+</style>
+<body style="background-color: black;">
+    <div class="box"></div>
+</body>
+</html>

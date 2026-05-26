@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: changeColor;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        /*@keyframes changeColor{
+           from{
+            background-color: red;
+           }
+           to{
+            background-color: blue;
+           }
+        }*/
+
+        /*@keyframes changeColor{
+            0%{
+                background-color: red;
+            }
+            50%{
+                background-color: blue;
+            }
+            100%{
+                background-color: rgb(32, 117, 26);
+            }
+        }*/
+
+        @keyframes changeColor{
+            0%{ transform: translateX(0px);
+                background-color: red;
+            }
+            50%{transform: translateY(100px);
+                background-color: blue;
+            }
+            100%{transform: translateZ(0px);
+                background-color: rgba(29, 163, 51);
+            }
+        }
+        /* the animation will work in x axis because of translateX but if we use translateY it will work in y axis and if we use translateZ it will work in z axis */
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <strong>Animation Effects Goes back to original state</strong>
+    <div class="box"></div>
+    <p>Animation Effects Goes back to original state</p>
+</body>
+</html>
