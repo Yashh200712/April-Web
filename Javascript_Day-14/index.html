@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // Your JavaScript code here
+    console.log("Hello, World!");
+
+    //variable declaration
+    var username = "Yash"; // using var keyword
+    console.log(username);
+
+    var password = 12345; // using var keyword
+    console.log(password);
+
+    var deliveryCharge = 50; // using var keyword
+    // we can also redeclare the variable and assign new value to it  but it is not recommended to do so because it can lead to confusion and bugs in the code
+    var deliveryCharge = 100; // using var keyword
+      console.log(deliveryCharge);// it will print 100 because we have redeclared the variable and assigned new value to it
+
+      //let keyword
+
+      let totalPrice = 500; // using let keyword
+      console.log(totalPrice);
+      // let totalPrice = 1000; // using let keyword
+      // console.log(totalPrice); // it will give an error because we cannot redeclare a variable
+
+      let email = "Yash@example.com"; // using let keyword
+      
+      email = "sui@gmail.com"; // if no keyword is used then it will be considered as a global variable and it will be accessible throughout the code and we can also reassign the value to it without any error
+      console.log(email); // it will print
+
+      //3. const keyword- there is no loophole to use same keyword again and we cannot reassign the value to it but we can change the value of the object or array if it is declared as const
+      const PI = 3.14; // using const keyword
+      console.log(PI);
+      // PI = 3.14159; // this will give an error because we cannot reassign a value to a const variable
+      console.log(PI);
+</script>
+<body>
+     <!-- we can also write JavaScript code here but  after script tag closing we cant write html tag because it will be considered as a string and it will not work as html tag -->
+</body>
+</html>
