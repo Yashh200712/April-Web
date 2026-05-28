@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. Arithmetic Operators- These operators are used to perform mathematical operations on numbers. They include addition (+), subtraction (-), multiplication (*), division (/), modulus (%), and exponentiation (**).
+        var a = 10;
+        var b = 5;
+        console.log( a + b ); // Output: 15
+        console.log( a - b ); // Output: 5
+        console.log( a * b ); // Output: 50
+        console.log( a / b ); // Output: 2
+        console.log( a % b ); // Output: 0
+        console.log( a ** b ); // Output: 100000
+
+        //2. Assignment Operators- These operators are used to assign values to variables. They include the simple assignment operator (=) and compound assignment operators (+=, -=, *=, /=, %=, **=).
+        //symbol- =
+         var x = 10;
+
+         //Assign and operators
+         console.log( x=x+5 ); // Output: 15
+         console.log( x+=5 ); // Output: 20 
+
+         //3. comparison operators- These operators are used to compare two values and return a boolean result (true or false). They include equality (==), strict equality (===), inequality (!=), strict inequality (!==), greater than (>), less than (<), greater than or equal to (>=), and less than or equal to (<=).
+         var c = 10;
+            var d = "20";
+            console.log( c >d ); // Output: false (10 is not greater than "20")
+            console.log( c < d ); // Output: true (strict equality does not allow type coercion)
+            console.log( c != d ); // Output: false (loose inequality allows type coercion)
+
+        const height1 = 176;
+        const height2 = 180;
+        console.log( height1 >= height2 ); // Output: false (176 is not greater than or equal to 180)
+        console.log( height1 <= height2 ); // Output: true (176 is less than or equal to 180)
+        console.log( height1 === height2 ); // Output: false (data type is same but value is different)
+        console.log( height1 !== height2 ); // Output: true (strict inequality does not allow type coercion)
+        //== will only check value not data type, while === will check both value and data type.
+
+        //4. Logical Operators- These operators are used to combine multiple boolean expressions and return a boolean result. They include logical AND (&&), logical OR (||), and logical NOT (!).
+        //&&- returns true if both operands are true, otherwise returns false.
+
+        var isMember = true;
+        var TotalAmount = 499;
+        console.log( isMember && TotalAmount > 500 ); // Output: false (TotalAmount is not greater than 500)
+        console.log( isMember && TotalAmount > 300 ); // Output: true (TotalAmount is greater than 300)
+
+        //|| (OR)- returns true if at least one of the operands is true, otherwise returns false.
+
+        var JioHotstar = true;
+        var paidSubscription = false;
+        console.log( "can i watch JioHotstar?" , JioHotstar || paidSubscription ); // Output: true (JioHotstar is true)
+        console.log( "can i watch JioHotstar?" , paidSubscription || JioHotstar ); // Output: true (JioHotstar is true)
+        console.log( "can i watch JioHotstar?" , paidSubscription || false ); // Output: false (both operands are false)
+
+        //Negation operator (!)- returns true if the operand is false, and returns false if the operand is true.
+
+        var NetflixSubscription = false;
+        console.log( "do i have a Netflix subscription?" , !NetflixSubscription ); // Output: true (NetflixSubscription is false)
+    </script>
+</body>
+</html>

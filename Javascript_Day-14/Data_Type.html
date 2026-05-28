@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Data Types in JavaScript
+
+        //1. String- A sequence of characters enclosed in single or double quotes.
+        var customerName = "John Doe";
+        //buildIn methods are features that are already available in JavaScript to perform specific tasks on data types. For example, the length property can be used to find the number of characters in a string.
+        //typeof(value)
+        console.log( typeof(customerName) );
+
+        //2. Number- Represents both integer and floating-point numbers.
+        var age = 30;
+        console.log( typeof(age) );
+
+        //3. Boolean- Represents a logical entity that can have two values: true or false.
+        var isStudent = true;
+        console.log( typeof(isStudent) );   
+        // if false is written in the double quotes or single quotes, it will be treated as a string and not a boolean value.
+            var isStudent = "false";
+            console.log( typeof(isStudent) );
+
+        //4. Null- Represents the intentional absence of any object value. It is a primitive value that can be assigned to a variable to indicate that it has no value.
+        var a=null;
+        console.log( typeof(a) ); // The typeof operator will return "object" for null, which is a known quirk in JavaScript.
+        //undefined- Represents a variable that has been declared but has not been assigned a value. It is a primitive value that indicates the absence of a value.
+        var b;
+        console.log( typeof(b) ); // The typeof operator will return "undefined" for variables that have been declared but not assigned a value.
+
+        //Advanced Data Types
+
+        //Array- A collection of elements that can hold multiple values of any data type. Arrays are ordered and can be accessed using an index.
+        //Symbol- [] is used for array literal syntax, which is a way to create an array in JavaScript. It allows you to define an array with a list of values enclosed in square brackets. For example:
+        var fruits = ["apple", "banana", "orange",true, 42, null];
+        console.log( fruits[0] ); // Output: "apple"
+        console.log( fruits[1] ); // Output: "banana"
+        console.log(fruits); // Output: ["apple", "banana", "orange", true, 42, null]
+        console.log( typeof(fruits) ); // The typeof operator will return "object" for arrays   
+
+        //Object- A collection of key-value pairs where each key is a string (or symbol) and the value can be of any data type. Objects are used to represent real-world entities and can have properties and methods.
+        //Symbol- {} is used for object literal syntax, which is a way to create an object in JavaScript. It allows you to define an object with a list of key-value pairs enclosed in curly braces. For example:
+        //Rule- (left) key: value (right)
+        var person = {
+            name: "Alice",
+            age: 25,
+            isStudent: false
+        }
+        console.log( person ); // Output: { name: "Alice", age: 25, isStudent: false }
+        console.log( person.name ); // Output: "Alice"
+        console.log( person.age ); // Output: 25
+        console.log( person.isStudent ); // Output: false
+        console.log( typeof(person) ); // The typeof operator will return "object" for objects
+
+        //function- A block of reusable code that performs a specific task. Functions can be defined using the function keyword or as arrow functions. They can take parameters and return values.
+        //keyword- function
+        //symbol-()
+        function BillCalculator() 
+        {
+         //body of the function
+         var product1 = "Milk";
+        var product2 = "Bread";
+
+        var price1 = 100;
+        var price2 = 50;
+
+        var totalBill = price1 + price2;
+        console.log( "Total Bill: " ,  totalBill ); // Output: Total Bill: 150
+        }
+
+        BillCalculator(); // Calling the function to execute its code
+    </script>
+    
+</body>
+</html>
