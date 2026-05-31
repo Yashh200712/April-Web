@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //Task: Generate a random number between 0 and 1 and print it to the console. This number will be your "lucky number" for the day.
+        let luckyNo= Math.floor(Math.random()*6) + 1; // generates a random number between 1 and 6
+
+        console.log(luckyNo);
+
+        while(luckyNo != 6){
+            guess = prompt("Enter number between 1 and 6:"); // prompts the user to try again if the lucky number is not 6
+           
+           if(guess == 6){
+               alert("Congratulations! You guessed the lucky number!");
+               break; // exits the loop if the user guesses the lucky number
+           }
+           else{
+               alert("Wrong guess! Try again.");
+           }
+        }
+    </script>
+</body>
+</html>
