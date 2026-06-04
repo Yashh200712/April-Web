@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors Game</h1>
+
+    <div class="choice">
+        <button class="rock" onclick="playGame('rock')">Rock</button>
+        <button class="paper" onclick="playGame('paper')">Paper</button>
+        <button class="scissors" onclick="playGame('scissors')">Scissors</button>
+    </div>
+
+    <p id="result">Choose your option!</p>
+
+    <div class="scoreboard">
+        <p><strong>Scoreboard</strong></p>
+        <p>Win<span id="win-count">0</span></p>
+        <p>Loss<span id="loss-count">0</span></p>
+        <p>Draw<span id="draw-count">0</span></p>
+    </div>
+
+    <script>
+        let winCount = 0;
+        let lossCount = 0;
+        let drawCount = 0;
+
+        function playGame(userChoice){
+            const choices = ['rock','paper','scissors'];
+            const computerChoice = choices[Math.floor(Math.random()* 3)]
+
+            let resultMessage = '';
+            //Logic for win, loss, draw
+            if(userChoice === computerChoice){
+                resultMessage = "It's a draw!";
+                drawCount++;
+            } else if(
+                (userChoice === 'rock' && computerChoice === 'scissors') ||
+                (userChoice === 'paper' && computerChoice === 'rock') ||
+                (userChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                resultMessage = "You win!";
+                winCount++;
+            } else {
+                resultMessage = "You lose!";
+                lossCount++;
+            }
+            //Dom to connect html and js
+
+            document.getElementById('result').innerHTML = resultMessage;
+            document.getElementById('win-count').innerHTML = winCount;
+            document.getElementById('loss-count').innerHTML = lossCount;
+            document.getElementById('draw-count').innerHTML = drawCount;
+        }
+    </script>
+</html>

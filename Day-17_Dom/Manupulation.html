@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Hello everyone</p>
+    <button id="btn">Click Me</button>
+    <div class="ele">This is a div element</div>
+    <div class="my_id">This is a div with class my_id</div>
+    <script>
+        //Update the content of element
+
+        const element = document.querySelector("p");
+        element.textContent = "Hello Yash Tiwari";
+        console.log(element);
+
+        const button = document.getElementById("btn");
+        button.textContent = "Don't Click Me";
+
+        //innerHTML- it will show the content of element along with the html tag
+        const element2 = document.getElementById("ele");
+        //element2.innerHTML = "<h1>This is a div element</h1>";
+        //console.log(element2.innerHTML);
+
+        const ele3 = document.getElementById("my_id");
+
+        ele3.style.color = "red";
+        ele3.style.backgroundColor = "yellow";
+        ele3.textContent = "This is a div with class my_id and it is updated";
+    </script>
+</body>
+</html>
