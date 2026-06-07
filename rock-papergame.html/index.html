@@ -3,8 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors Game</title>
 </head>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #070707;
+        color: #fff;
+
+    }
+    .choice button{
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+    .rock{
+        background-color: #ff4c4c;
+        color: #fff;
+    }
+    .paper{
+        background-color: #4c9aff;
+        color: #fff;
+    }
+    .scissors{
+        background-color: #4cff4c;
+        color: #fff;
+    }
+    .scoreboard{
+        margin-top: 20px;
+    }
+    rock:hover, .paper:hover, .scissors:hover{
+        opacity: 0.8;
+    }
+    #result{
+        font-size: 24px;
+        margin-top: 20px;
+        color: gold;
+    }
+    #win-count, #loss-count, #draw-count{
+        font-size: 18px;
+        margin-left: 5px;
+    }
+    #win-count{
+        color: #4cff4c;
+    }
+    #loss-count{
+        color: #ff4c4c;
+    }
+    #draw-count{
+        color: #777878;
+    }
+</style>
 <body>
     <h1>Rock Paper Scissors Game</h1>
 
