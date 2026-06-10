@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>welcome to Event</h2>
+
+    <input is="myInput" placeholder="type something search.....">
+    <div id="mydiv">
+        <div class="contact">scroll Inside Me</div>
+    </div>
+
+    <script>
+        //1. Select element
+        const input = document.getElementById('myInput')
+        const div = document.getElementById('mydiv')
+
+        //2. capture event/Element
+        //keyup-key release u bget output
+       // input.addEventListener('keyup', function(e){
+        //console.log('key Released -' , e.key)
+    //});
+
+        //3.keydown- it gives result till the time key is pressed
+        input.addEventListener('keydown', function(x){
+            console.log('key Released -' , x.key)
+        });
+
+        //change -change happens in the input
+        input.addEventListener('change', function(y){
+            console.log('key Released -' , y.target.value)
+        }) 
+    </script>
+</body>
+</html>

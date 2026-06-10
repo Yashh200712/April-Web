@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">add to cart</button>
+    <p id = "msg">Message will appear here</p>
+    <script>
+        //1. select your tag/element
+        const button = document.getElementById('btn');
+        const message = document.getElementById('msg');
+
+        //2. addEventListener('eventName', callbackFunction)
+        btn.addEventListener('click', function(){
+            msg.textContent = 'Item added to cart';
+// single click will work on single click while double click can be written as dbl 
+        });
+    </script>
+</body>
+</html>
