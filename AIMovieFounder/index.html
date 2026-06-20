@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodFlix | Movie Recommendations</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-film"></i>
+            MoodFlix
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#trending">Trending</a></li>
+
+            <li><a href="#movies">Movies</a></li>
+
+            <li><a href="#about">About</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Discover Movies Based On Your Mood
+            </h1>
+
+            <p>
+                Feeling happy, sad, excited, romantic or scared?
+                Let MoodFlix recommend the perfect movie instantly.
+            </p>
+
+            <!-- Search -->
+
+            <div class="search-container">
+
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search any movie..."
+                >
+
+                <button id="search-btn">
+                    🔍 Search
+                </button>
+
+            </div>
+
+            <!-- Mood Buttons -->
+
+            <div class="mood-buttons">
+
+                <button data-mood="comedy">
+                    😂 Happy
+                </button>
+
+                <button data-mood="drama">
+                    😭 Sad
+                </button>
+
+                <button data-mood="action">
+                    🤩 Excited
+                </button>
+
+                <button data-mood="romance">
+                    ❤️ Romantic
+                </button>
+
+                <button data-mood="horror">
+                    👻 Scared
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TRENDING MOVIES -->
+
+    <section id="trending" class="movie-section">
+
+        <h2 class="section-title">
+            🔥 Trending Movies
+        </h2>
+
+        <div id="trending-container">
+
+            <!-- JS will insert movies -->
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <h3>Instant Results</h3>
+
+            <p>
+                Get movie recommendations instantly.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-star"></i>
+
+            <h3>Top Rated Movies</h3>
+
+            <p>
+                Discover highly rated movies worldwide.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-heart"></i>
+
+            <h3>Mood Based</h3>
+
+            <p>
+                Recommendations based on your mood.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- RECOMMENDED MOVIES -->
+
+    <section id="movies" class="movie-section">
+
+        <h2 class="section-title">
+            🎬 Recommended Movies
+        </h2>
+
+        <div id="movie-container">
+
+            <!-- JS inserts movies -->
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about" class="about-section">
+
+        <h2 class="section-title">
+            About MoodFlix
+        </h2>
+
+        <div class="about-content">
+
+            <p>
+                MoodFlix is a movie recommendation platform
+                built using HTML5, CSS3 and JavaScript.
+            </p>
+
+            <p>
+                It uses TMDB API to recommend movies
+                based on your mood.
+            </p>
+
+            <h3>Technologies Used</h3>
+
+            <ul>
+
+                <li>HTML5</li>
+
+                <li>CSS3</li>
+
+                <li>JavaScript ES6</li>
+
+                <li>TMDB API</li>
+
+                <li>Responsive Design</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-section">
+
+                <h2 class="footer-logo">
+                    🎬 MoodFlix
+                </h2>
+
+                <p>
+                    Discover movies based on your mood
+                    using TMDB API.
+                </p>
+
+            </div>
+
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+
+                <a href="#home">Home</a>
+
+                <a href="#trending">Trending</a>
+
+                <a href="#movies">Movies</a>
+
+                <a href="#about">About</a>
+
+            </div>
+
+            <div class="footer-section">
+
+                <h3>Tech Stack</h3>
+
+                <p>HTML5</p>
+
+                <p>CSS3</p>
+
+                <p>JavaScript</p>
+
+                <p>TMDB API</p>
+
+            </div>
+
+            <div class="footer-section">
+
+                <h3>Connect</h3>
+
+                <a href="https://github.com/Yashh200712" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/yash-tiwari-a56606376" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+
+                <a href="mailto:yashhtiwari2007@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                    Email
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 MoodFlix | Designed & Developed by Yash Tiwari
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- TRAILER MODAL -->
+
+    <div id="trailer-modal" class="trailer-modal">
+
+        <div class="trailer-content">
+
+            <span id="close-modal">&times;</span>
+
+            <iframe
+                id="trailer-frame"
+                src=""
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
