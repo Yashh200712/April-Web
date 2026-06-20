@@ -1,11 +1,9 @@
-// No API key here anymore — all TMDB calls go through /api/tmdb,
-// which injects the key server-side. See api/tmdb.js.
-
-const PROXY_BASE = "/api/tmdb";
+const API_KEY = "e482e67104353bb8ba84a75750f68526";
 
 /* =========================
    DOM ELEMENTS
 ========================= */
+
 const buttons = document.querySelectorAll(".mood-buttons button");
 const movieContainer = document.getElementById("movie-container");
 const searchBtn = document.getElementById("search-btn");
@@ -68,6 +66,7 @@ if (searchInput) {
     searchInput.addEventListener("keydown", (e) => {
 
         if (e.key === "Enter") {
+
             e.preventDefault();
 
             const query = searchInput.value.trim();
@@ -90,21 +89,19 @@ function displayMovies(movies, container) {
 
     container.innerHTML = "";
 
-    const cardsHtml = movies.map(movie => {
+    movies.forEach(movie => {
 
         const posterUrl = movie.poster_path
             ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
             : "https://placehold.co/500x750?text=No+Poster";
 
-        const rating = (movie.vote_average ?? 0).toFixed(1);
+        container.innerHTML += `
 
-        return `
             <div class="movie-card">
 
                 <img
                     src="${posterUrl}"
-                    alt="${movie.title} poster"
-                    loading="lazy"
+                    alt="${movie.title}"
                 >
 
                 <div class="movie-content">
@@ -112,7 +109,7 @@ function displayMovies(movies, container) {
                     <h2>${movie.title}</h2>
 
                     <div class="rating">
-                        ⭐ ${rating}
+                        ⭐ ${movie.vote_average.toFixed(1)}
                     </div>
 
                     <p>
@@ -134,7 +131,7 @@ function displayMovies(movies, container) {
 
                     <p>
                         ${movie.overview
-                            ? movie.overview.substring(0, 120) + "..."
+                            ? movie.overview.substring(0,120) + "..."
                             : "No description available."}
                     </p>
 
@@ -148,46 +145,32 @@ function displayMovies(movies, container) {
                 </div>
 
             </div>
+
         `;
 
-    }).join("");
-
-    container.innerHTML = cardsHtml;
+    });
 
 }
 
 /* =========================
-   FETCH MOOD MOVIES
+   FETCH MOVIES BY MOOD
 ========================= */
 
 async function fetchMovies(mood) {
 
     const genreId = moodGenres[mood];
 
-    if (!genreId) {
-        movieContainer.innerHTML = `
-            <div class="loading">
-                ❌ Invalid mood selected.
-            </div>
-        `;
-        return;
-    }
-
     movieContainer.innerHTML = `
         <div class="loading">
-            🎬 Finding movies for you...
+            🎬 Finding movies...
         </div>
     `;
 
     try {
 
         const response = await fetch(
-            `${PROXY_BASE}?endpoint=discover/movie&with_genres=${genreId}&sort_by=popularity.desc`
+            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&sort_by=popularity.desc`
         );
-
-        if (!response.ok) {
-            throw new Error("Failed to fetch movies");
-        }
 
         const data = await response.json();
 
@@ -195,10 +178,13 @@ async function fetchMovies(mood) {
             .sort(() => 0.5 - Math.random())
             .slice(0, 6);
 
-        displayMovies(movies, movieContainer);
+        displayMovies(
+            movies,
+            movieContainer
+        );
 
     }
-    catch (error) {
+    catch(error){
 
         console.error(error);
 
@@ -207,6 +193,7 @@ async function fetchMovies(mood) {
                 ❌ Failed to load movies.
             </div>
         `;
+
     }
 
 }
@@ -219,44 +206,36 @@ async function searchMovies(query) {
 
     movieContainer.innerHTML = `
         <div class="loading">
-            🔍 Searching movies...
+            🔍 Searching...
         </div>
     `;
 
     try {
 
         const response = await fetch(
-            `${PROXY_BASE}?endpoint=search/movie&query=${encodeURIComponent(query)}`
+            `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`
         );
-
-        if (!response.ok) {
-            throw new Error("Search failed");
-        }
 
         const data = await response.json();
 
-        if (!data.results || data.results.length === 0) {
+        if (!data.results.length) {
+
             movieContainer.innerHTML = `
                 <div class="loading">
-                    🔍 No results found for "${query}".
+                    No movies found.
                 </div>
             `;
+
             return;
         }
 
         displayMovies(
-            data.results.slice(0, 6),
+            data.results.slice(0,6),
             movieContainer
         );
 
-        document
-            .getElementById("movies")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-
     }
-    catch (error) {
+    catch(error){
 
         console.error(error);
 
@@ -265,6 +244,7 @@ async function searchMovies(query) {
                 ❌ Search failed.
             </div>
         `;
+
     }
 
 }
@@ -289,22 +269,18 @@ async function loadTrendingMovies() {
     try {
 
         const response = await fetch(
-            `${PROXY_BASE}?endpoint=trending/movie/week`
+            `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`
         );
-
-        if (!response.ok) {
-            throw new Error("Failed to load trending movies");
-        }
 
         const data = await response.json();
 
         displayMovies(
-            data.results.slice(0, 6),
+            data.results.slice(0,6),
             trendingContainer
         );
 
     }
-    catch (error) {
+    catch(error){
 
         console.error(error);
 
@@ -313,6 +289,7 @@ async function loadTrendingMovies() {
                 ❌ Failed to load trending movies.
             </div>
         `;
+
     }
 
 }
@@ -320,22 +297,24 @@ async function loadTrendingMovies() {
 /* =========================
    WATCH TRAILER
 ========================= */
+
 async function watchTrailer(movieId) {
 
     try {
 
         const response = await fetch(
-            `${PROXY_BASE}?endpoint=movie/${movieId}/videos`
+            `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`
         );
-
-        if (!response.ok) {
-            throw new Error("Failed to load trailer");
-        }
 
         const data = await response.json();
 
         const video = data.results.find(
-            v => v.site === "YouTube" && v.type === "Trailer"
+            v =>
+                v.site === "YouTube" &&
+                (
+                    v.type === "Trailer" ||
+                    v.type === "Teaser"
+                )
         ) || data.results.find(
             v => v.site === "YouTube"
         );
@@ -344,6 +323,7 @@ async function watchTrailer(movieId) {
 
             alert("Trailer not available.");
             return;
+
         }
 
         const iframe =
@@ -357,29 +337,25 @@ async function watchTrailer(movieId) {
             .style.display = "flex";
 
     }
-    catch (error) {
+    catch(error){
 
         console.error(error);
 
         alert("Failed to load trailer.");
+
     }
+
 }
+
 window.watchTrailer = watchTrailer;
+
 /* =========================
    INITIAL LOAD
 ========================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-        loadTrendingMovies();
-    }
-);
-/* =========================
-   MODAL CLOSE EVENTS
-========================= */
-
 document.addEventListener("DOMContentLoaded", () => {
+
+    loadTrendingMovies();
 
     const modal =
         document.getElementById("trailer-modal");
@@ -395,31 +371,32 @@ document.addEventListener("DOMContentLoaded", () => {
         closeBtn.addEventListener("click", () => {
 
             modal.style.display = "none";
-
             iframe.src = "";
 
         });
 
     }
 
-    modal.addEventListener("click", (e) => {
+    if (modal) {
 
-        if (e.target === modal) {
+        modal.addEventListener("click", (e) => {
 
-            modal.style.display = "none";
+            if (e.target === modal) {
 
-            iframe.src = "";
+                modal.style.display = "none";
+                iframe.src = "";
 
-        }
+            }
 
-    });
+        });
+
+    }
 
     document.addEventListener("keydown", (e) => {
 
         if (e.key === "Escape") {
 
             modal.style.display = "none";
-
             iframe.src = "";
 
         }
